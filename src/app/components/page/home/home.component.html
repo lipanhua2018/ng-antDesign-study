@@ -1,0 +1,43 @@
+<div class="home-page">
+    <div nz-row class="up-content" [nzGutter]="{ xs: 10, sm: 10, md: 10, lg: 10, xl: 10, xxl: 10 }">
+        <div nz-col nzSpan="6" class="up-left-content">
+            <dl class="rankings-list">
+                <dt class="tab-btn">
+                    <button nz-button class=""><i class="anticon anticon-bar-chart blue-icon"></i>收益排行</button>
+                    <button nz-button><i class="anticon anticon-pie-chart orange-icon"></i>支出占比</button>
+                </dt>
+                <ul class="rankings-box scroll-style">
+                    <li nz-row *ngFor="let item of pageData.rankingsData; let i=index;"> 
+                        <span nz-col nzSpan="2">{{item.ranking}}</span>
+                        <span nz-col nzSpan="8">{{item.profitType}}</span>
+                        <span nz-col nzSpan="7">{{item.money}}</span>
+                        <span nz-col nzSpan="7" [class.red]="item.color=='red'" [class.green]="item.color=='green'" [class.yellow]="item.color=='yellow'"><i class="anticon" 
+                        [class.anticon-arrow-up]="item.color=='red'"
+                        [class.anticon-arrow-down]="item.color=='green'"
+                        [class.anticon-minus]="item.color=='yellow'"
+                        ></i>{{item.percentage}}</span>
+                    </li>
+                </ul>
+            </dl>
+        </div>
+        <div nz-col nzSpan="18" class="up-right-content">
+            <div class="charts-content">
+                <ul class="total-box">
+                        <li *ngFor="let item of pageData.totalData; let i=index;">
+                            <h3>{{item.indexNum}}</h3>
+                            <div>{{item.indexType}}</div>
+                        </li>
+                    </ul>
+                    <div class="echarts-box scroll-style">
+                            <!-- <app-lineChart></app-lineChart> -->
+                    <app-brokenLine></app-brokenLine>
+                </div>
+            </div>            
+        </div>
+    </div>
+    <div nz-row class="down-content" [nzGutter]="{ xs: 10, sm: 10, md: 10, lg: 10, xl: 10, xxl: 10 }">
+        <div nz-col nzSpan="6" class="down-left-content">col-6</div>
+        <div nz-col nzSpan="18" class="down-right-content">col-18</div>
+    </div>
+</div>
+

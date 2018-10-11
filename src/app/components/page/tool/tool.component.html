@@ -1,0 +1,8 @@
+<h1>{{pageData.pageName}}</h1>
+<div>
+    <ul>
+        <li *ngFor="let item of pageData.toolList; let i=index;">
+            <b>{{item.web}}：</b><span>{{item.dom}}</span>
+        </li>
+    </ul>
+</div>

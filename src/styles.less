@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("node_modules/ng-zorro-antd/ng-zorro-antd.min.css");    // 引入ng-zorro框架样式
+@import url("./assets/font-icon/style.css");    // 引入自定义字体图标
+
+dl, dt, dd, ul, ol, li, p, h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+.scroll-style::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 10px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+.scroll-style::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: #888;
+}
+.scroll-style::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background: #EDEDED;
+}

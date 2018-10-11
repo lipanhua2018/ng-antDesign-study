@@ -1,20 +1,94 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- NG-ZORRO -->
+<nz-layout class="layout-height">
+  <!-- 侧边导航start -->
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate" class="sider">
+    <div class="logo">
+      LOGO
+    </div>
+    <!-- [nzInlineCollapsed]菜单是否收起状态，接收一个布尔值 -->
+    <ul nz-menu [nzTheme]="'light'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
+      
+        <li nz-menu-item [nzSelected]="true">
+            <a [routerLink]="['/home']" routerLinkActive="router-link-active" >
+              <span><i class="anticon anticon-home"></i><span class="nav-text">首页</span></span>
+            </a>
+        </li>
+     
+      
+      <li nz-submenu>
+        <span title><i class="anticon anticon-area-chart"></i><span class="nav-text">报表管理</span></span>
+        <ul>
+          <a routerLink='./home' routerLinkActive="router-link-active" ><li nz-menu-item>Home</li></a>
+          <a routerLink='./list' routerLinkActive="router-link-active" ><li nz-menu-item>List</li></a>
+          <a routerLink='./tool' routerLinkActive="router-link-active" ><li nz-menu-item>Tool</li></a>
+        </ul>
+      </li>
+      <li nz-submenu>
+        <span title><i class="anticon anticon-form"></i><span class="nav-text">待办任务</span></span>
+        <ul>
+          <li nz-menu-item>Team 1</li>
+          <li nz-menu-item>Team 2</li>
+        </ul>
+      </li>
+      
+    </ul>
+  </nz-sider>
+  <!-- 侧边导航end -->
 
+  <!-- 右边内容区域start -->
+  <nz-layout>
+    <!-- 顶部头部区域start -->
+    <nz-header class="header-area">
+      <!-- [class.anticon-menu-fold]="!isCollapsed" 定义class -->
+      <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>
+      <div class="userinfo-area">
+          <nz-input-group class="global-search" nzSuffixIcon="anticon anticon-search">
+              <input type="text" nz-input placeholder="input search text">
+          </nz-input-group>
+          <div class="info-div">
+              <i class="anticon anticon-mail"></i>
+              <span class="blue-span">4</span>
+          </div>
+          <div class="info-div">
+              <i class="anticon anticon-bell"></i>
+              <span>7</span>
+          </div>
+          <div class="tx-div">
+          </div>
+          <nz-dropdown [nzPlacement]="'bottomRight'">
+              <button nz-button nz-dropdown class="border-none">
+                admin
+              <i class="anticon anticon-down"></i>
+              </button>
+              <ul nz-menu>
+                <li nz-menu-item>
+                  <a><i class="anticon anticon-logout"></i><span> 退出</span></a>
+                </li>
+                <li nz-menu-item>
+                  <a><i class="anticon anticon-swap"></i><span> 切换账号</span></a>
+                </li>
+              </ul>
+          </nz-dropdown>
+      </div>
+    </nz-header>
+    <!-- 顶部头部区域end -->
+
+    <!-- 中间内容区域start -->
+    <nz-content class="middle-content-area">
+      <!-- <nz-breadcrumb style="margin:16px 0;">
+        <nz-breadcrumb-item>User</nz-breadcrumb-item>
+        <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+      </nz-breadcrumb> -->
+      <div class="content-area">      
+          <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <!-- 中间内容区域end -->
+
+    <!-- <nz-footer style="text-align: center;">Ant Design ©2017 Implement By Angular</nz-footer> -->
+  </nz-layout>
+  <!-- 右边内容区域end -->
+</nz-layout>
+<ng-template #trigger>
+  <i class="anticon anticon-up"></i>
+</ng-template>
