@@ -15,26 +15,36 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { RouteService } from './components/provider/route.service';
 import { StorageService } from './components/provider/storage.service';
 
-// 引入组建
+// 引入页面
 import { AppComponent } from './app.component';
+import { DataviewComponent } from './components/page/dataview/dataview.component';
 import { HomeComponent } from './components/page/home/home.component';
 import { ListComponent } from './components/page/list/list.component';
 import { ToolComponent } from './components/page/tool/tool.component';
+
+// 引入组建
 import { SiderComponent } from './components/assembly/sider/sider.component';
 import { LineChartComponent } from './components/assembly/lineChart/lineChart.component';
 import { BrokenLineComponent } from './components/assembly/brokenLine/brokenLine.component';
+import { PieChartComponent } from './components/assembly/pieChart/pieChart.component';
+import { BarChartComponent } from './components/assembly/barChart/barChart.component';
+import { AddSampleComponent } from './add-sample/add-sample.component';
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [ // 声明组建
     AppComponent,
-    HomeComponent,
+    DataviewComponent,
     ListComponent,
     ToolComponent,
+    HomeComponent,
     SiderComponent,
     LineChartComponent,
-    BrokenLineComponent
+    BrokenLineComponent,
+    PieChartComponent,
+    BarChartComponent,
+    AddSampleComponent
   ],
   imports: [  // 导入模块
     BrowserModule,

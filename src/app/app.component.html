@@ -6,8 +6,7 @@
       LOGO
     </div>
     <!-- [nzInlineCollapsed]菜单是否收起状态，接收一个布尔值 -->
-    <ul nz-menu [nzTheme]="'light'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
-      
+    <ul nz-menu [nzTheme]="'light'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">     
         <li nz-menu-item [nzSelected]="true">
             <a [routerLink]="['/home']" routerLinkActive="router-link-active" >
               <span><i class="anticon anticon-home"></i><span class="nav-text">首页</span></span>
@@ -15,15 +14,15 @@
         </li>
      
       
-      <li nz-submenu>
+      <li nz-submenu [(nzOpen)]="pageData.openMap.sub2" (nzOpenChange)="openHandler('sub2')">
         <span title><i class="anticon anticon-area-chart"></i><span class="nav-text">报表管理</span></span>
         <ul>
-          <a routerLink='./home' routerLinkActive="router-link-active" ><li nz-menu-item>Home</li></a>
-          <a routerLink='./list' routerLinkActive="router-link-active" ><li nz-menu-item>List</li></a>
-          <a routerLink='./tool' routerLinkActive="router-link-active" ><li nz-menu-item>Tool</li></a>
+          <a routerLink='./dataview' routerLinkActive="router-link-active" ><li nz-menu-item>数据展示</li></a>
+          <a routerLink='./list' routerLinkActive="router-link-active" ><li nz-menu-item>报表任务</li></a>
+          <a routerLink='./tool' routerLinkActive="router-link-active" ><li nz-menu-item>报表工具</li></a>
         </ul>
       </li>
-      <li nz-submenu>
+      <li nz-submenu [(nzOpen)]="pageData.openMap.sub3" (nzOpenChange)="openHandler('sub3')">
         <span title><i class="anticon anticon-form"></i><span class="nav-text">待办任务</span></span>
         <ul>
           <li nz-menu-item>Team 1</li>
