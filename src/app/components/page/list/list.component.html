@@ -1,6 +1,139 @@
-<ol>
-    <li *ngFor="let item of pageData.colorList; let i = index;">
-        <span>{{item.color}}：</span> <b>{{item.ch}}</b>
-    </li>
-</ol>
-<h1>{{pageData.pageName}}</h1>
+<div class="reportForm-page">
+    <div nz-row nzGutter="16" class="reportForm-count">
+        <div nz-col class="gutter-row" nzSpan="6" *ngFor="let item of pageData.statisticsData; let i=index">
+            <div class="gutter-row-box">
+                <dl class="row-content">
+                    <dt>{{item.title}}</dt>
+                    <dd [ngClass]="{blue: item.color == 'blue', orange:item.color == 'orange', green: item.color == 'green', red: item.color == 'red'}">{{item.count}}</dd>
+                </dl>
+                <div class="chart-box row-content">
+                    <app-ringChart *ngIf="item.color == 'blue'" [ringChart]="pageData.ringChart0"> </app-ringChart>
+                    <app-ringChart *ngIf="item.color == 'orange'" [ringChart]="pageData.ringChart1"> </app-ringChart>
+                    <app-ringChart *ngIf="item.color == 'green'" [ringChart]="pageData.ringChart2"> </app-ringChart>
+                    <app-ringChart *ngIf="item.color == 'red'" [ringChart]="pageData.ringChart3"> </app-ringChart>
+                </div>
+            </div>
+        </div>       
+    </div>
+
+    <nz-content class="reportForm-content">
+        <div class="content-top">
+            <div class="area-box">
+                    <nz-dropdown nzSize="small">
+                        <button nz-button nzSize="small" nz-dropdown><span>{{pageData.area}}</span> <i class="anticon anticon-down"></i></button>
+                        <ul nz-menu>
+                            <li nz-menu-item *ngFor="let item of pageData.areaSelect">
+                                <a (click)="selectFn(item)">{{item.area}}</a>
+                            </li>                           
+                        </ul>
+                    </nz-dropdown>
+                    <span>to</span>
+                    <nz-dropdown nzSize="small">
+                            <button nz-button nzSize="small" nz-dropdown><span>{{pageData.department}}</span> <i class="anticon anticon-down"></i></button>
+                            <ul nz-menu>
+                                <li nz-menu-item *ngFor="let item of pageData.selectDepartment">
+                                    <a (click)="selectFn(item)">{{item.department}}</a>
+                                </li>                           
+                            </ul>
+                    </nz-dropdown>
+            </div>
+            <div class="switch-date">
+                <nz-button-group class="btn-group-box" nzSize="small">                    
+                    <button nz-button (click)="monthFn()" nzSize="small" nzType="primary">月</button>
+                    <button nz-button nzType="default" nzSize="small" (click)="weekFn()">周</button>
+                    <button nz-button nzType="default" nzSize="small" (click)="dateFn()">日</button>
+                </nz-button-group>
+            </div>
+            <div class="status-box">
+                    <nz-dropdown nzSize="small">
+                            <button nz-button nzSize="small" nz-dropdown><span>{{pageData.status}}</span> <i class="anticon anticon-down"></i></button>
+                            <ul nz-menu>
+                                <li nz-menu-item *ngFor="let item of pageData.numStatus; let i=index">
+                                    <a (click)="selectFn(item)">{{item.status}}</a>
+                                </li>                           
+                            </ul>
+                    </nz-dropdown>
+                    <button nz-button nzType="primary" nzSize="small" (click)="newBuildbusiness()" class="newBuild">新建业务单 <i class="anticon anticon-plus"></i></button>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="content-tab">
+                <div class="content-tab-head">预处理单</div>
+                <ul class="content-tab-body scroll-style">
+                    <li *ngFor="let item of pageData.tableData; let i=index">
+                        <div nz-row class="row-div">
+                            <div nz-col nzSpan="1" class="check-center">
+                                <label nz-checkbox [(ngModel)]="item.checked"></label>
+                            </div>
+                            <div nz-col nzSpan="5">
+                                <div class="tr-div">
+                                    <label>业务单号：</label><span>{{item.businessNo}}</span>                                   
+                                </div>
+                                <div class="tr-div">
+                                    <label>订单单号：</label><span>{{item.orderNo}}</span>
+                                </div>
+                                <div class="tr-div">
+                                    <label>单据评分：</label><span><nz-rate [ngModel]="item.rate" nzAllowHalf></nz-rate></span>
+                                </div>
+                            </div>
+                            <div nz-col nzSpan="3">
+                                <div class="tr-div">
+                                    <label>单号类型：</label><span>{{item.numType}}</span>                                    
+                                </div>
+                                <div class="tr-div">
+                                    <label>处理部门：</label><span>{{item.handleDepartment}}</span>                                    
+                                </div>
+                                <div class="tr-div">
+                                    <label>收单人员：</label><span>{{item.handlePeople}}</span>                                    
+                                </div>
+                            </div>
+                            <div nz-col nzSpan="4">
+                                        <div class="tr-div">
+                                            <label>单据状态：</label><span>{{item.numStatus}}</span>                                    
+                                        </div>
+                                        <div class="tr-div">
+                                            <label>单据金额：</label><span>{{item.numMoney}}</span>                                    
+                                        </div>
+                                        <div class="tr-div">
+                                            <label>大写金额：</label><span>{{item.numMoney | uppercase}}</span>                                    
+                                        </div>
+                            </div>
+                            <div nz-col nzSpan="4">
+                                        <div class="tr-div">
+                                            <label>合同类型：</label><span>{{item.contractType}}</span>                                    
+                                        </div>
+                                        <div class="tr-div">
+                                            <label>签单时间：</label><span>{{item.contractDate}}</span>                                    
+                                        </div>
+                                        <div class="tr-div">
+                                            <label>到单时间：</label><span>{{item.reachDate}}</span>                                    
+                                        </div>
+                            </div>
+                            <div nz-col nzSpan="5">
+                                        <div class="tr-div">
+                                            <label>客户名称：</label><span>{{item.downPeople}}</span>                                    
+                                        </div>
+                                        <div class="tr-div">
+                                            <label>电话号码：</label><span>{{item.peopleTel}}</span>                                    
+                                        </div>
+                                        <div class="tr-div">
+                                            <label>收货地址：</label><span>{{item.address}}</span>                                    
+                                        </div>
+                            </div>
+                            <div class="handle-btn" nz-col nzSpan="2">
+                                <nz-button-group nzSize="small">
+                                    <button nz-button nzType="primary" nzSize="small" (click)="showModalMiddle(item, 'show', i)"><i nz-icon class="anticon anticon-eye"></i></button>                                   
+                                    <button nz-button nzType="primary" nzSize="small" (click)="showModalMiddle(item, 'edit', i)"><i nz-icon class="anticon anticon-edit"></i></button>
+                                    <button nz-button nzType="primary" nzSize="small" (click)="deleteRow(i)"><i nz-icon class="anticon anticon-delete"></i></button>
+                                </nz-button-group>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nz-content>
+
+    <app-tabForm #tabform [dialogData]="pageData.dialogData" (sendParent)="confirmRowData($event)"></app-tabForm>
+
+</div>

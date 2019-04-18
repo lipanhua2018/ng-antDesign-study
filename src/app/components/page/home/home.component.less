@@ -1,0 +1,307 @@
+.home-page{
+    height: 100%;
+    .up-content{
+        height: 50%;
+        border-bottom: 10px solid hsla(0,0%,90%,.0);
+        box-sizing: border-box;
+        overflow: hidden;
+        // 内容区域上半部分，左边样式
+        .up-left-box{
+            height: 100%;
+            box-sizing: border-box;
+            .up-left-content{
+                background-color: white;
+                box-sizing: border-box;
+                height: 100%;
+                overflow: hidden;
+                .work-head{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 10px;
+                    button{
+                        font-size: 12px;
+                    }
+                }
+                .ant-list-item{
+                    padding: 8px 0;
+                }
+                .list-box{
+                    display: flex;
+                    width: 100%;
+                    padding: 0 .2rem;
+                    .list-left-icon{
+                        width: 10%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
+                        .icon-box{
+                            display: inline-block;
+                            width: .7rem;
+                            height: .7rem;
+                            font-size: .25rem;
+                            
+                            line-height: .7rem;
+                            border-radius: .35rem;
+                            background-color: #e8eefc;
+                            border: 1px solid #cfddff;
+                        }
+                    }
+                    
+                    .list-content{
+                        width: 90%;
+                        .list-info{
+                            padding: 0 10px;
+                        }
+                        .list-up-content{
+                            display: flex;
+                            justify-content: space-between;
+                            .list-title{
+        
+                            }
+                            ul{
+                                overflow: hidden;
+                                li{
+                                    float: left;
+                                    font-size: 12px; 
+                                    padding-left: 10px;
+                                    span{
+                                        padding-left: 5px;
+                                        font-weight: bold;
+                                    }                          
+                                }
+                            }
+                        }
+                    .list-center{
+                        line-height: .5rem;
+                    }
+                    .list-footer{
+                        font-size: 12px;
+                        color: #999;
+                    }
+                    .orange-font{
+                        color: orange;                
+                    }
+                    .grenn-font{
+                        color: green;
+                    }
+                    .blue-font{
+                        color: #3366ff;
+                    }   
+                    }
+                }
+        
+            }
+        }
+        // 内容区域上半部分，右边样式
+        .up-right-box{
+            height: 100%;
+            .up-right-content{
+                height: 100%;
+                background-color: white;
+                position: relative;
+                li{
+                    text-align: center;
+                }
+                .one-li{
+                    padding: 10px;
+                    overflow: hidden;
+                    button{
+                        float: right;
+                    }
+                }
+                .three-li{
+                    margin-top: 10px;
+                }
+                .public-li{
+                    
+                }
+                .rate-li{
+                    margin: 10px 0;
+                }
+                .portrait-li{
+                    height: 30%;                    
+                    .portrait{
+                        display: inline-block;
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 50px;
+                        background-image: url('../../../../assets/image/touxiang.jpg');
+                        background-repeat: no-repeat;
+                        background-size: 100%;
+                    }
+                }
+                .last-li{
+                    width: 100%;
+                    display: flex;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    border-top: 1px solid #eee;
+                    .ringChart-div{
+                        display: flex;
+                        dl{
+                            width: 55%;
+                            height: 100%;
+                            text-align: left;
+                            dt{
+                                font-weight: bold;
+                                font-size: 16px;
+                                color: #333;
+                                margin-top: 15px;
+                            }
+                            dd{
+                                font-size: 12px;
+                                color: #999;
+                            }
+                        }
+                    }
+                    div{                       
+                        width: 50%;
+                        height: 80px;
+                        box-sizing: border-box;
+                        &:nth-child(1){
+                            border-right: 1px solid #eee;
+                        }
+                        .ringChart-box{
+                            width: 45%;
+                            height: 100%;
+                            border: 0;
+                        }
+                    }
+                    // .left-div{
+                    //     border-left: 1px solid #eee;
+                    // }
+                }
+            }
+        }
+    }
+    .down-content{
+        height: 50%;
+        .down-content-box{
+            height: 100%;
+            dl{
+                height: 100%;
+                background-color: white;              
+                box-sizing: border-box;
+                dt{
+                    height: 15%;
+                    padding: 0 10px;
+                    display: flex;
+                    align-items: center;
+                    font-weight: bold;
+                    border-bottom: 1px solid #eee;
+                } 
+                dd{
+                    height: 85%;
+                    overflow: auto;
+                }                       
+            }
+            .down-left-box{
+                dd{
+                    // height: 85%;
+                    // overflow: auto;
+                li{
+                    width: 90%;
+                    height: 1rem;
+                    margin: auto;
+                    margin-top: .2rem;
+                    border: 1px solid #eee;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                    display: flex;
+                    .icon-box-span{
+                        display: inline-block;
+                        width: 15%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 0.31rem;
+                    }
+                    .card-content{
+                        width: 85%;
+                        .one-div{
+                            line-height: 0.45rem;
+                            padding: 0 10px;
+                            margin-top: .1rem;
+                            span{
+                                font-size: 0.15rem;                               
+                            }
+                            .vip-span{
+                                color: orange;
+                                display: inline-block;
+                                padding-left: 10px;
+                            }
+                            
+                        }
+                        .two-div{
+                            padding: 0 10px;
+                            font-size: 0.15rem;
+                            color: #999;
+                        }
+                        .time-span{
+                            float: right;
+                            color: #999;
+                        }
+                    }
+                }
+                }
+            }
+            .down-center-box{                              
+                dd{
+                    // height: 85%;
+                    // overflow: auto;
+                    ul{
+                        height: 100%;
+                        li{
+                            display: flex;
+                            height: 0.4rem;
+                            line-height: 0.4rem;
+                            font-size: 0.15rem;
+                            padding: 0 10px;
+                            p{
+                                width: 65%;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                color: #333;
+                            }
+                            span{
+                                width: 35%;
+                                text-align: right;
+                                color: #999;
+                            }
+                        }
+                    }
+                }
+           
+            }
+            .down-right-box{
+                .colleague-box{
+                    // height: 85%;
+                    // overflow: auto;
+                    ul{
+                        height: 100%;
+                        li{
+                            width: 90%;
+                            margin: auto;
+                            border: 1px solid #eee;
+                            padding: 7px 10px;
+                            border-radius: 4px;
+                            margin-top: 10px;
+                            font-size: 0.15rem;
+                            box-sizing: border-box;
+                            
+                            div{
+                                line-height: 0.28rem;
+                            }
+                            .english-name{
+                                margin-left: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

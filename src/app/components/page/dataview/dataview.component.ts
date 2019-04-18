@@ -132,25 +132,24 @@ export class DataviewComponent implements OnInit {
     pieData1: {
       title: '收益类型',
       subtext: '当月数据',
-      data:[
-        {value:635, name:'产品'},
-        {value:310, name:'广告'},
-        {value:534, name:'基金'},
-        {value:1135, name:'股票'},
-        {value:1548, name:'地产'}
+      data: [
+        {value: 635, name: '产品'},
+        {value: 310, name: '广告'},
+        {value: 534, name: '基金'},
+        {value: 1135, name: '股票'},
+        {value: 1548, name: '地产'}
     ]},
     pieData2: {
       title: '增幅分类',
       subtext: '当月数据',
-      data:[
-      {value:980, name:'产品'},
-      {value:750, name:'广告'},
-      {value:1220, name:'基金'},
-      {value:360, name:'股票'},
-      {value:470, name:'地产'}
+      data: [
+      {value: 980, name: '产品'},
+      {value: 750, name: '广告'},
+      {value: 1220, name: '基金'},
+      {value: 360, name: '股票'},
+      {value: 470, name: '地产'}
   ]}
-    
-  }
+  };
 
   ngOnInit() {
 

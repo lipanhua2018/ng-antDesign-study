@@ -25,8 +25,8 @@
       <li nz-submenu [(nzOpen)]="pageData.openMap.sub3" (nzOpenChange)="openHandler('sub3')">
         <span title><i class="anticon anticon-form"></i><span class="nav-text">待办任务</span></span>
         <ul>
-          <li nz-menu-item>Team 1</li>
-          <li nz-menu-item>Team 2</li>
+          <li nz-menu-item (click)="gotaskPage()">任务页面</li>
+          <li nz-menu-item (click)="goworkpage()">工作页面</li>
         </ul>
       </li>
       
@@ -35,7 +35,7 @@
   <!-- 侧边导航end -->
 
   <!-- 右边内容区域start -->
-  <nz-layout>
+  <nz-layout class="right-content">
     <!-- 顶部头部区域start -->
     <nz-header class="header-area">
       <!-- [class.anticon-menu-fold]="!isCollapsed" 定义class -->
@@ -74,11 +74,7 @@
 
     <!-- 中间内容区域start -->
     <nz-content class="middle-content-area">
-      <!-- <nz-breadcrumb style="margin:16px 0;">
-        <nz-breadcrumb-item>User</nz-breadcrumb-item>
-        <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
-      </nz-breadcrumb> -->
-      <div class="content-area">      
+      <div class="content-area scroll-style">      
           <router-outlet></router-outlet>
       </div>
     </nz-content>

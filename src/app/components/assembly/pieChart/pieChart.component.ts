@@ -8,7 +8,7 @@ import { Component, OnInit, Input, Output, ViewChild, EventEmitter } from '@angu
 export class PieChartComponent implements OnInit {
 
   constructor() { }
-@Input() pieData:any;   // 接收父组件传递过来的数据
+@Input() pieData: any;   // 接收父组件传递过来的数据
 
     public chartOption = {
     title : {
@@ -17,11 +17,11 @@ export class PieChartComponent implements OnInit {
             fontSize: 14
         },
         subtext: '',
-        x:'center'
+        x: 'center'
     },
     tooltip : {
         trigger: 'item',
-        formatter: "{a} <br/>{b} : {c} ({d}%)"
+        formatter: '{a} <br/>{b} : {c} ({d}%)'
     },
     legend: {
         orient: 'vertical',
@@ -39,7 +39,7 @@ export class PieChartComponent implements OnInit {
             type: 'pie',
             radius : '55%',
             center: ['50%', '60%'],
-            data:[ ],
+            data: [],
             // label: {
             //     fontSize: 0,
             //     fontWeight: 'bold'
@@ -62,7 +62,7 @@ export class PieChartComponent implements OnInit {
         }
     ],
     color: ['#f9747d', '#55a1ff', '#f6b952', '#71a0fe', '#4ddac7']
-}
+};
 
     ngOnInit() {
         this.initChartData();
@@ -70,9 +70,9 @@ export class PieChartComponent implements OnInit {
 
     private initChartData () {  // 初始化图例数据
         this.chartOption.series[0].data = this.pieData.data;
-        this.pieData.data.map((item)=>{
-            this.chartOption.legend.data.push(item.name)
-        })
+        this.pieData.data.map((item) => {
+            this.chartOption.legend.data.push(item.name);
+        });
         this.chartOption.title.text = this.pieData.title;
         this.chartOption.title.subtext = this.pieData.subtext;
     }

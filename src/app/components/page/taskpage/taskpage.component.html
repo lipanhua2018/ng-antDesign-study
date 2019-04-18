@@ -1,0 +1,91 @@
+<div class="taskpage">
+    <div nz-row class="task-statistics">
+        <nz-tabset [nzTabBarExtraContent]="extraTemplate">
+            <nz-tab *ngFor="let tab of pageData.statisticsTabs; let i=index" [nzTitle]="tab.title ">
+                <ul nz-row [nzGutter]="15" class="tab-ul-box">
+                    <li nz-col [nzSpan]="6" *ngFor="let item of tab.content; let n=index;" class="tab-li-card">
+                        <div class="card-content" [ngClass]="{purpleBg: n==1}">
+                                <span>{{item.draft}}</span>
+                                <p>
+                                    {{item.describe}}
+                                </p>
+                                <b>{{item.money}}</b>
+                        </div>                           
+                    </li>
+                </ul>                
+            </nz-tab>
+          </nz-tabset>
+          <ng-template #extraTemplate>
+            <button nz-button [nzSize]="small">查看更多</button>
+          </ng-template>
+    </div>
+    <div nz-row class="tab-head-total">
+        <dl class="total-box">
+            <dt class="total-dt">任务总计
+                <span>更多</span>
+            </dt>
+            <dd class="total-dd">
+                <div>
+                    <label>Asp任务</label><span>1580</span>
+                </div>
+                <div>
+                    <label>Dev任务</label><span>2330</span>
+                </div>
+                <div>
+                    <label>Sit任务</label><span>1980</span>
+                </div>
+            </dd>
+        </dl>
+    </div>
+
+    <div nz-row class="table-box">
+            <nz-tabset [nzType]="'line'" [nzTabBarExtraContent]="xinzeng">
+                <nz-tab nzTitle="asp列表">
+                        <div nz-row class="table-head">
+                                <div nz-col [nzSpan]="1">                                        
+                                    </div>
+                                    <div nz-col [nzSpan]="10">任务名称</div>
+                                    <div nz-col [nzSpan]="3">发起部门</div>
+                                    <div nz-col [nzSpan]="4">截止时间</div>
+                                    <div nz-col [nzSpan]="3">状态</div>
+                                    <div nz-col [nzSpan]="3" class="operation-div">操作</div>
+                        </div>
+                        <ul class="table-ul-box">
+                            <li nz-row class="table-li-flex" *ngFor="let item of pageData.tableData; let i=index">
+                                <div nz-col [nzSpan]="1" class="flex-col-div">
+                                    <label nz-checkbox [(ngModel)]="item.check"></label>
+                                </div>
+                                <div nz-col [nzSpan]="10" class="two-col-div">
+                                    <div class="col-head">{{item.taskText}}</div>
+                                    <div class="col-small">{{item.taskTip}}</div>
+                                </div>
+                                <div nz-col [nzSpan]="3" class="col-lingheight">{{item.department}}</div>
+                                <div nz-col [nzSpan]="4" class="col-lingheight">{{item.time}}</div>
+                                <div nz-col [nzSpan]="3" class="col-lingheight" [ngClass]="{red: item.status=='重要', orange: item.status=='紧急', blue: item.status=='普通'}">{{item.status}}</div>
+                                <div nz-col [nzSpan]="3" class="flex-col-div">
+                                        <nz-button-group nzSize="small">
+                                                <button nz-button nzType="primary" nzSize="small" (click)="lookRowInfo(item,i)"><i nz-icon class="anticon anticon-eye"></i></button>                                   
+                                                <button nz-button nzType="primary" nzSize="small" (click)="editRowInfo(item,i)"><i nz-icon class="anticon anticon-edit"></i></button>
+                                                <button nz-button nzType="primary" nzSize="small" (click)="deleteRow(i)"><i nz-icon class="anticon anticon-delete"></i></button>
+                                        </nz-button-group>
+                                </div>
+                            </li>
+                        </ul>
+                </nz-tab>
+                <nz-tab nzTitle="dev列表">
+                        Content of Tab Pane dev
+                </nz-tab>
+                <nz-tab nzTitle="sit列表">
+                        Content of Tab Pane sit
+                </nz-tab>
+                <nz-tab nzTitle="uat列表">
+                        Content of Tab Pane uat
+                </nz-tab>
+            </nz-tabset>
+            <ng-template #xinzeng>
+                <button nz-button (click)="addRowInfo()">新增</button>
+            </ng-template>
+    </div>
+
+    <app-taskDialog #taskdialog [rowInfo]="pageData.taskRow" (dialogData)="confirmRowData($event)"></app-taskDialog>
+</div>

@@ -31,7 +31,7 @@ export class ToolComponent implements OnInit {
             web: 'jQuery',
             dom: 'footer'
           }]
-  }
+  };
 
   ngOnInit() {
   }

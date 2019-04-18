@@ -16,7 +16,7 @@ export class BarChartComponent implements OnInit {
             fontSize: 14
         },
         subtext: '',
-        x:'left'
+        x: 'left'
     },
     legend: {
         data: ['华夏地产'],
@@ -51,13 +51,13 @@ export class BarChartComponent implements OnInit {
     ],
     series : [
         {
-            name:'华夏地产',
-            type:'bar',
+            name: '华夏地产',
+            type: 'bar',
             barWidth: '60%',
-            data:[10, 52, 200, 334, 390, 330, 220]
+            data: [10, 52, 200, 334, 390, 330, 220]
         }
     ]
-}
+};
 
   ngOnInit() {
   }

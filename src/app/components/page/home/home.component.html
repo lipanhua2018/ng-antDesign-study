@@ -1,3 +1,138 @@
-<div>
-    home
+<div class="home-page">
+    <div nz-row [nzGutter]="{ xs: 10, sm: 10, md: 10, lg: 10, xl: 10, xxl: 10 }" class="up-content">
+        <div nz-col nzSpan="18" class="up-left-box">
+            <div class="up-left-content">
+                <div class="work-head">
+                    <b>
+                        任务工作台
+                    </b>
+                    <button nz-button nzType="primary" nzSize="small">更多任务</button>
+                </div>
+                <nz-list class="list-style" [nzDataSource]="pageData.backlogData" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
+                    <ng-template #item let-item>                       
+                      <nz-list-item>
+                          <div class="list-box">
+                              <div class="list-left-icon">
+                                    <span class="icon-box">
+                                            <i class="anticon" [class.anticon-schedule]="item.title =='报表任务'"
+                                            [class.anticon-usergroup-add]="item.title =='行政任务'"
+                                            [class.anticon-api]="item.title =='开发任务'"
+                                            ></i>
+                                    </span>
+                              </div>
+                              
+                              <div class="list-content">
+                                  <div class="list-up-content list-info">
+                                      <b class="list-title">{{item.title}}</b>
+                                      <ul>
+                                          <li>待办<span class="orange-font">{{item.stay}}</span></li>
+                                          <li>已办<span  class="grenn-font">{{item.haveDone}}</span></li>
+                                          <li>正在处理<span  class="blue-font">{{item.handle}}</span></li>
+                                      </ul>
+                                  </div>
+                                  <div class="list-info list-center">{{item.content}}</div>
+                                  <div class="list-info list-footer">{{item.listFooter}}</div>
+                              </div>
+                          </div>
+                      </nz-list-item>
+                    </ng-template>
+                  </nz-list>
+            </div>
+        </div>
+        <div nz-col nzSpan="6" class="up-right-box">
+            <ul class="up-right-content">
+                <li class="one-li">
+                    <button nz-button nzType="primary" nzSize="small" nzShape="circle"><i class="anticon anticon-edit"></i></button>
+                </li>
+                <li class="portrait-li">
+                    <span class="portrait"></span>
+                </li>
+                <li class="three-li public-li">
+                    super-admin
+                </li>
+                <li class="public-li">
+                    lipanhua520@163.com
+                </li>
+                <li class="public-li rate-li">
+                    <nz-rate [ngModel]="pageData.rate" (ngModelChange)="rateMethods($event)" nzAllowHalf></nz-rate>
+                </li>
+                <li class="last-li">
+                    <div class="ringChart-div">
+                        <div class="ringChart-box">
+                            <app-ringChart [ringChart]="pageData.ringChart1"></app-ringChart>
+                        </div>
+                        <dl>
+                            <dt>90%</dt>
+                            <dd>已成交量</dd>
+                        </dl>
+                    </div>
+                    <div class="ringChart-div">
+                        <div class="ringChart-box">
+                            <app-ringChart [ringChart]="pageData.ringChart2"></app-ringChart>
+                        </div>
+                        <dl>
+                            <dt>85%</dt>
+                            <dd>客户评价</dd>
+                        </dl>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div nz-row [nzGutter]="{ xs: 10, sm: 10, md: 10, lg: 10, xl: 10, xxl: 10 }" class="down-content">
+        <div nz-col nzSpan="9" class="down-content-box">
+            <dl class="down-left-box">
+                <dt>预约客户</dt>
+                <dd class="scroll-style">
+                    <ul>
+                        <li *ngFor="let item of pageData.appointment; let i=index">
+                            <span class="icon-box-span">
+                                <i class="anticon"
+                                [class.anticon-ant-design]="item.name=='design'"
+                                [class.anticon-github]="item.name=='github'"
+                                [class.anticon-google]="item.name=='google'"
+                                ></i>
+                            </span>
+                            <div class="card-content">
+                                <div class="one-div"><b>{{item.customer}}</b><span class="vip-span">{{item.vip}}</span><span class="time-span">{{item.time}}</span></div>
+                                <div class="two-div">{{item.describe}}<span class="time-span">{{item.department}}</span></div>
+                            </div>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div nz-col nzSpan="9" class="down-content-box">
+            <dl class="down-center-box" id="down-center-box">
+                <dt #dtHeight id="dtHeight">最新公告</dt>
+                <dd class="scroll-style notice-box" id="notice-box">
+                    <ul>
+                        <li *ngFor="let item of pageData.notice" class="">
+                            <p>{{item.title}}</p> <span>{{item.dateline+item.aid | time}}</span>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div nz-col nzSpan="6" class="down-content-box">
+            <dl class="down-right-box">
+                <dt>同事名片</dt>
+                <dd class="scroll-style colleague-box">
+                    <ul>
+                        <li *ngFor="let item of pageData.list">
+                            <div>
+                                <label>姓名：</label><span>张某某</span> <span>({{item.gender=='male'?'男':'女'}})</span>  <label class="english-name">englishName：</label><span>{{item.name.last}}</span>
+                            </div>
+                            <div>
+                                <label>职位：</label><span>{{item.nat}}开发工程师</span>
+                            </div>
+                            <div>
+                                <label>邮箱：</label><span>{{item.email}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+    </div>
 </div>

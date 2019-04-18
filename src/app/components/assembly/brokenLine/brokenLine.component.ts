@@ -38,7 +38,7 @@ export class BrokenLineComponent implements OnInit {
         },
         color: ['#0f9ce3']
     },
-    // {  
+    // {
     //     data: [980, 892,825, 750, 860, 905, 1086],
     //     type: 'line',
     //     color: ['#ef9323'],
@@ -54,7 +54,7 @@ export class BrokenLineComponent implements OnInit {
     //             }, {
     //                 offset: 0, color: '#faaa48' // 0% 处的颜色
     //             }],
-    //             globalCoord: false 
+    //             globalCoord: false
     //         }
     //     }
     // }

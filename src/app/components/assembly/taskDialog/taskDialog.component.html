@@ -1,0 +1,52 @@
+
+<nz-modal [(nzVisible)]="pageData.isVisible" [nzTitle]="rowInfo.title" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+        <div class="taskDialog">  
+        <div nz-row class="dialog-row">
+                    <div nz-col nzSpan="24">
+                        <label for="">任务信息：</label>
+                        <input class="input-text" nz-input placeholder="请输入任务信息" nzSize="small" [(ngModel)]="rowInfo.taskText" [disabled]="rowInfo.disabled" >
+                    </div>
+            </div>
+
+            <div nz-row class="dialog-row">
+                    <div nz-col nzSpan="24">
+                        <label for="">任务提示：</label>
+                        <input class="input-text" nz-input placeholder="请输入任务提示" nzSize="small" [(ngModel)]="rowInfo.taskTip" [disabled]="rowInfo.disabled">
+                    </div>
+            </div>
+
+            <div nz-row class="dialog-row" [nzGutter]="25">
+                    <div nz-col nzSpan="12">
+                        <label for="">发起部门：</label>
+                        <input class="input-text" nz-input placeholder="请输入发起部门" nzSize="small" [(ngModel)]="rowInfo.department" [disabled]="rowInfo.disabled">
+                    </div>
+                    <div nz-col nzSpan="12" class="picker-time">
+                        <label for="">时间：</label>
+                        <!-- <input class="input-text" nz-input placeholder="请输入时间" nzSize="small" [(ngModel)]="rowInfo.time" [disabled]="rowInfo.disabled"> -->
+                        <nz-date-picker
+                            class="picker-time"
+                            [(ngModel)]="rowInfo.time"
+                            nzSize="small"
+                            style="width: 223px;"                           
+                            nzShowTime
+                            nzFormat="yyyy-MM-dd HH:mm:ss"
+                            nzPlaceHolder="请选择时间"
+                            [nzDisabled]="rowInfo.disabled"
+                            (ngModelChange)="onChange($event)"
+                            (nzOnOk)="onOk($event)"
+                        ></nz-date-picker>
+                    </div>
+            </div>
+
+            <div nz-row class="dialog-row" [nzGutter]="25">
+                    <div nz-col nzSpan="12">
+                        <label for="">状态：</label>
+                        <!-- <input class="input-text" nz-input placeholder="请选择状态" nzSize="small" [(ngModel)]="rowInfo.status" [disabled]="rowInfo.disabled"> -->
+                        <nz-select style="width: 223px;" nzSize="small" [(ngModel)]="rowInfo.status" nzAllowClear nzPlaceHolder="Choose" [disabled]="rowInfo.disabled">
+                            <nz-option [nzValue]="item.text" [nzLabel]="item.text" *ngFor="let item of pageData.status"></nz-option>
+                        </nz-select>
+
+                    </div>                   
+            </div>
+        </div>
+</nz-modal>

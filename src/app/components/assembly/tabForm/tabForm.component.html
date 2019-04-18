@@ -1,0 +1,82 @@
+<nz-modal [nzWidth]="620"
+ nzWrapClassName="vertical-center-modal"
+ [(nzVisible)]="pageData.isVisibleMiddle" 
+ [nzTitle]="dialogData.title" 
+ (nzOnCancel)="handleCancelMiddle()" 
+ (nzOnOk)="handleOkMiddle()"
+ >
+    <div class="dialog-box">
+        <h5>单号信息</h5>
+        <div nz-row class="dialog-row">
+                <div nz-col nzSpan="12">
+                    <label for="">业务单号：</label>
+                    <input class="input-text" nz-input placeholder="small size" nzSize="small" [(ngModel)]="dialogData.formData.businessNo" [disabled]="true">
+                </div>
+                <div nz-col nzSpan="12">
+                    <label for="">订单单号：</label>
+                    <input class="input-text" nz-input placeholder="small size" nzSize="small" [(ngModel)]="dialogData.formData.orderNo" [disabled]="true">
+                </div>
+        </div>
+        <div nz-row class="dialog-row">
+                <div nz-col nzSpan="12">
+                    <label for="">单据评分：</label>
+                    <input class="input-text" nz-input placeholder="small size" nzSize="small" [(ngModel)]="dialogData.formData.rate" [disabled]="dialogData.disabled">
+                </div>
+                <div nz-col nzSpan="12">
+                    <label for="">单号类型：</label>
+                    <input class="input-text" nz-input placeholder="small size" nzSize="small" [(ngModel)]="dialogData.formData.numType" [disabled]="dialogData.disabled">
+                </div>
+        </div>
+       
+        <div nz-row class="dialog-row">
+                <div nz-col nzSpan="12">
+                    <label for="">单据状态：</label>
+                    <input class="input-text" nz-input placeholder="small size" nzSize="small" [(ngModel)]="dialogData.formData.numStatus" [disabled]="dialogData.disabled">
+                </div>
+                <div nz-col nzSpan="12">
+                        <label for="">单据金额：</label>
+                        <input class="input-text" nz-input placeholder="small size" nzSize="small" [(ngModel)]="dialogData.formData.numMoney" [disabled]="dialogData.disabled">
+                </div>
+        </div>
+        <div nz-row class="dialog-row">
+                <div nz-col nzSpan="12">
+                    <label for="">签单时间：</label>
+                    <input class="input-text" nz-input placeholder="small size" nzSize="small" [(ngModel)]="dialogData.formData.contractDate" [disabled]="dialogData.disabled">
+                </div>
+                <div nz-col nzSpan="12">
+                        <label for="">到单时间：</label>
+                        <input class="input-text" nz-input placeholder="small size" nzSize="small" [(ngModel)]="dialogData.formData.reachDate" [disabled]="dialogData.disabled">
+                </div>
+        </div>     
+        <h5>客户信息</h5>
+        <div nz-row class="dialog-row">
+                <div nz-col nzSpan="12">
+                    <label for="">客户名称：</label>
+                    <input class="input-text" nz-input placeholder="small size" nzSize="small" [(ngModel)]="dialogData.formData.downPeople" [disabled]="dialogData.disabled">
+                </div>
+                <div nz-col nzSpan="12">
+                    <label for="">电话号码：</label>
+                    <input class="input-text" nz-input placeholder="small size" nzSize="small" [(ngModel)]="dialogData.formData.peopleTel" [disabled]="dialogData.disabled">
+                </div>
+        </div>
+        <div nz-row class="dialog-row">
+                <div nz-col nzSpan="12">
+                    <label for="">收货地址：</label>
+                    <input class="input-text" nz-input placeholder="small size" nzSize="small" [(ngModel)]="dialogData.formData.address" [disabled]="dialogData.disabled">
+                </div>
+                <div nz-col nzSpan="12">
+                    <label for="">处理部门：</label>
+                    <input class="input-text" nz-input placeholder="small size" nzSize="small" [(ngModel)]="dialogData.formData.handleDepartment" [disabled]="dialogData.disabled">
+                </div>
+        </div>
+       
+        <div nz-row class="dialog-row">
+                <div nz-col nzSpan="12">
+                    <label for="">收单人员：</label>
+                    <input class="input-text" nz-input placeholder="small size" nzSize="small" [(ngModel)]="dialogData.formData.handlePeople" [disabled]="dialogData.disabled">
+                </div>
+        </div>     
+    </div>
+    
+
+</nz-modal>
